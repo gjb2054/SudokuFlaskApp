@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='board.css') }}">
+</head>
+<body>
+    <div>
+        <p>
+            {% if unsolved %}
+                <form method="post">
+                <table cellspacing="0">
+                    {% set count = [0] %}
+                    {% for x in board %}
+                        {% set x_index = loop.index0 %}
+                        <tr>
+                        {% for y in x %}
+                            {% set y_index = loop.index0 %}
+                            {% if y == 0 %}
+                                {% if count.append(count.pop() + 1) %}{% endif %}
+                                <td><input {% if newGrid and newGrid[x_index][y_index]!=0 %} value="{{ newGrid[x_index][y_index] }}"{% endif %} id = {{ count[0] }} type="text" onkeyup="MoveToNext({{ count[0] }}, this.value)" onkeypress="return onlyNumberKey(event)"  autocomplete="off"  maxlength="1" name="{{ x_index }}{{ y_index }}" ></td>
+                            {% else %}
+                                <td style="font-size: 25px; background: lightgray; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;">{{ y }}</td>
+                            {% endif %}
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+                <input type="submit" value="Submit">
+                </form>
+            {% else %}
+            {% endif %}
+        </p>
+    </div>
+</body>
+<script>
+    function onlyNumberKey(evt) {
+
+        // Only ASCII charactar in that range allowed
+        const ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 49 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+    function MoveToNext(count, value) {
+        if (value.length >= 1)
+            document.getElementById((count + 1).toString()).focus()
+    }
+</script>
+</html>

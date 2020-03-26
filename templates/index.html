@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    {% if username %}
+        <div class="links">
+            <p><a href="/logout" class="button2">Logout</a></p>
+        </div>
+        <div id="difficulty">
+            <p><a href="/easy">Easy</a></p>
+            <p><a href="/medium">Medium</a></p>
+            <p><a href="/hard">Hard</a></p>
+        </div>
+    {% else %}
+        <div class="links">
+            <p><a href="/login" class="button2">Login</a></p>
+        </div>
+    {% endif %}
+</body>
+</html>
