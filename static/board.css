@@ -1,0 +1,62 @@
+table {
+    margin-left: 15%;
+    margin-top:5%
+}
+html {
+  background: url(/static/TrueBackground.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover; /* For WebKit*/
+  -moz-background-size: cover;    /* Mozilla*/
+  -o-background-size: cover;      /* Opera*/
+  background-size: cover;
+}
+.sudokuImg {
+    background: url(/static/sudoku.jpg) no-repeat; position: fixed; bottom: 0px; right: 0px;;
+}
+td {
+  height:40px;
+  width:40px;
+  border:1px solid;
+  text-align:center;
+}
+
+td:nth-child(3n) {
+  border-right:3px solid;
+}
+td:nth-child(9n) {
+  border-right:4px solid;
+}
+
+td:first-child {
+  border-left:4px solid;
+}
+
+
+tr:first-child td {
+  border-top:4px solid;
+}
+
+tr:nth-child(3n) td {
+  border-bottom: 3px solid ;
+}
+tr:nth-child(9n) td {
+  border-bottom: 4px solid;
+}
+
+data{
+    font-size: 25px;
+    background: lightgray;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+}
+
+input[type=text] {
+    text-align: center;
+    font-size: 30px;
+    width:40px;
+    height:40px;
+    display:block;
+    outline: none;
+    border: none;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+
+}
+
